@@ -6,12 +6,3 @@
   with_items: "{{ users_to_remove }}"
   become: yes
 
-- name: Ensure Home Directories Exist
-  file:
-    path: "/home/{{ item }}"
-    state: directory
-    owner: "{{ item }}"
-    group: "{{ item }}"
-    mode: 0755
-  with_items: "{{ users_to_remove }}"
-  become: yes

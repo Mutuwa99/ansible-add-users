@@ -4,9 +4,9 @@
   become: yes
   vars:
     users_to_remove:
-      - name: user1
-      - name: user2
-      - name: user3
+      - name: isaya
+      - name: noble
+      - name: mutuwa
 
   roles:
     - remove-users

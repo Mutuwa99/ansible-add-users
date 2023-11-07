@@ -4,8 +4,8 @@
   become: yes
   vars:
     users_to_create:
-      - { name: user1, group: group1, password: password1, home: /home/user1 }
-      - { name: user2, group: group2, password: password2, home: /home/user2 }
-      - { name: user3, group: group3, password: password3, home: /home/user3 }
+      - { name: isaya, group: group1, password: password1, home: /home/isaya }
+      - { name: noble, group: group2, password: password2, home: /home/noble }
+      - { name: mutuwa, group: group3, password: password3, home: /home/mutuwa }
   roles:
     - add-users
