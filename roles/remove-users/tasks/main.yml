@@ -1,0 +1,6 @@
+---
+- name: Remove users
+  user:
+    name: "{{ item.name }}"
+    state: absent
+  with_items: "{{ users_to_remove }}"

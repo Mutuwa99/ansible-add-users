@@ -1,0 +1,24 @@
+---
+- name: Create groups
+  group:
+    name: "{{ item.group }}"
+    state: present
+  with_items: "{{ users_to_create }}"
+   
+- name: Create users
+  user:
+    name: "{{ item.name }}"
+    state: present
+    groups: "{{ item.group }}"
+    password: "{{ item.password | password_hash('sha512', 'mysecretsalt') }}"
+    home: "{{ item.home }}"
+  with_items: "{{ users_to_create }}"
+   
+- name: Create home directories
+  file:
+    path: "{{ item.home }}"
+    state: directory
+    owner: "{{ item.name }}"
+    group: "{{ item.group }}"
+    mode: '0755'
+  with_items: "{{ users_to_create }}"

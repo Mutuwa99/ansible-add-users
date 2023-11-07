@@ -1,0 +1,11 @@
+---
+- name: Remove Users
+  hosts: target-machines
+  become: yes
+  vars:
+    users_to_remove:
+      - user1
+      - user2
+      - user3
+  roles:
+    - remove-users

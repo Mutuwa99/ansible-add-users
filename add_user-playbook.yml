@@ -1,0 +1,11 @@
+---
+- name: Create Users
+  hosts: target-machines
+  become: yes
+  vars:
+    users_to_create:
+      - { name: user1, group: group1, password: password1, home: /home/user1 }
+      - { name: user2, group: group2, password: password2, home: /home/user2 }
+      - { name: user3, group: group3, password: password3, home: /home/user3 }
+  roles:
+    - add-users
