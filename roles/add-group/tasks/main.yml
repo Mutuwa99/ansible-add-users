@@ -1,0 +1,7 @@
+---
+- name: Create groups
+  group:
+    name: "{{ item.group }}"
+    state: present
+  with_items: "{{ groups_to_create }}"
+  when: not groups[item.group] is defined

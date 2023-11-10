@@ -1,0 +1,9 @@
+---
+- name: Create Users
+  hosts: target-machines
+  become: yes
+  vars:
+    groups_to_create:
+      - { group: Backend}
+  roles:
+    - add-group
